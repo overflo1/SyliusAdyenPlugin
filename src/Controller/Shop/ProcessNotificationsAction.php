@@ -53,7 +53,8 @@ class ProcessNotificationsAction
                 $this->logger->error(\sprintf(
                     'Payment with pspReference [%s] did not return success',
                     $notificationItem->pspReference ?? ''
-                ));
+                ));                
+                $notificationItem->eventCode = 'cancellation';                              
             } else {
                 $this->logger->debug(\sprintf(
                     'Payment with pspReference [%s] finished with event code [%s]',
